@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/EriNa7/Tasks#readme",
   "dependencies": {
-    "@types/node": "^13.13.5"
+    "@types/node": "^14.0.1",
+    "readline-sync": "^1.4.10"
   }
 }
