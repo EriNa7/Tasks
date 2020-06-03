@@ -17,7 +17,7 @@ function renderTodo(num, todo) {
     sign = "[ ]";
   }
 
-  console.log(sign + " " + num + ". " + todo.title);
+  return sign + " " + num + ". " + todo.title;
 }
 
 function initTodo() {
@@ -45,18 +45,18 @@ function listTodo(type) {
   let todos = loadTodo();
   if (type === "all") {
     for (let i = 0; i < todos.length; ++i) {
-      renderTodo(i + 1, todos[i]);
+      console.log(renderTodo(i + 1, todos[i]));
     }
   } else if (type === "completed") {
     for (let i = 0; i < todos.length; ++i) {
       if (todos[i].completed === true) {
-        renderTodo(i + 1, todos[i]);
+        console.log(renderTodo(i + 1, todos[i]));
       }
     }
   } else if (type === "uncompleted") {
     for (let i = 0; i < todos.length; ++i) {
       if (todos[i].completed === false) {
-        renderTodo(i + 1, todos[i]);
+        console.log(renderTodo(i + 1, todos[i]));
       }
     }
   }
@@ -82,7 +82,7 @@ function toggleTodo(num) {
   if (todo.length >= num) {
     todo[num - 1].completed = !todo[num - 1].completed;
     saveTodo(todo);
-    renderTodo(num, todo[num - 1]);
+    console.log(renderTodo(num, todo[num - 1]));
   } else {
     console.log("wrong number");
   }
@@ -130,9 +130,9 @@ while (true) {
   } else if (command === "add") {
     addTodo(words[1]);
   } else if (command === "toggle") {
-    toggleTodo(words[1]);
+    toggleTodo(parseInt(words[1]));
   } else if (command === "remove") {
-    removeTodo(words[1]);
+    removeTodo(parseInt(words[1]));
   } else if (command === "clear") {
     clearTodos();
   } else if (command === "exit") {
